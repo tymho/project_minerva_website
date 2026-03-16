@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TinyCone — Your Photos, Perfectly Organized</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --rose:    #f4a7b9;
+      --blush:   #fce4ec;
+      --lilac:   #e8d5f5;
+      --plum:    #9b5fc0;
+      --soft-bg: #fdf6fb;
+      --text:    #3d2550;
+      --muted:   #9b7aad;
+      --white:   #ffffff;
+      --radius:  18px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: var(--soft-bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 22px 40px;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, #c06fc4, #7b4fa3);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -0.5px;
+    }
+
+    .logo span { font-weight: 400; }
+
+    /* ── HERO ── */
+    .hero {
+      text-align: center;
+      padding: 60px 24px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -120px; left: 50%;
+      transform: translateX(-50%);
+      width: 700px; height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #f9d4e8 0%, transparent 70%);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #fce4ec, #e8d5f5);
+      color: var(--plum);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 6vw, 4.2rem);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -1px;
+      max-width: 700px;
+      margin: 0 auto 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    h1 .highlight {
+      background: linear-gradient(135deg, #c06fc4, #7b4fa3);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-sub {
+      font-size: 1.15rem;
+      color: var(--muted);
+      max-width: 480px;
+      margin: 0 auto 40px;
+      line-height: 1.7;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* mockup */
+    .phone-wrap {
+      position: relative;
+      display: inline-block;
+      z-index: 1;
+      margin-top: 10px;
+    }
+
+    .phone {
+      width: 220px;
+      height: 420px;
+      background: linear-gradient(160deg, #f8e8f9, #ead4f7);
+      border-radius: 44px;
+      border: 6px solid #fff;
+      box-shadow:
+        0 30px 80px rgba(155, 95, 192, 0.22),
+        0 8px 24px rgba(155, 95, 192, 0.12),
+        inset 0 0 0 1px rgba(155,95,192,0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 28px 16px 20px;
+      gap: 10px;
+      overflow: hidden;
+    }
+
+    .phone-notch {
+      width: 70px; height: 12px;
+      background: #d8bfe8;
+      border-radius: 100px;
+    }
+
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+      width: 100%;
+    }
+
+    .photo-cell {
+      aspect-ratio: 1;
+      border-radius: 10px;
+      background: var(--c, #f2c8e0);
+    }
+
+    .photo-cell:nth-child(1)  { --c: #f9b8cc; }
+    .photo-cell:nth-child(2)  { --c: #d4b8f9; }
+    .photo-cell:nth-child(3)  { --c: #b8d4f9; }
+    .photo-cell:nth-child(4)  { --c: #f9d4b8; }
+    .photo-cell:nth-child(5)  { --c: #b8f9d4; }
+    .photo-cell:nth-child(6)  { --c: #f9f4b8; }
+    .photo-cell:nth-child(7)  { --c: #e8b8f9; }
+    .photo-cell:nth-child(8)  { --c: #b8e8f9; }
+    .photo-cell:nth-child(9)  { --c: #f9cdb8; }
+
+    .phone-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: var(--plum);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.7;
+    }
+
+    /* ── FEATURES ── */
+    .features {
+      padding: 70px 24px;
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .section-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--plum);
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      margin-bottom: 48px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 32px 24px;
+      box-shadow: 0 4px 20px rgba(155, 95, 192, 0.08);
+      text-align: left;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(155, 95, 192, 0.14);
+    }
+
+    .card-icon {
+      font-size: 2rem;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .card h3 {
+      font-size: 1.1rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      font-size: 0.92rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ── WAITLIST ── */
+    .waitlist {
+      background: linear-gradient(135deg, #f3e8fb, #fce4ec);
+      border-radius: 32px;
+      max-width: 680px;
+      margin: 0 auto 80px;
+      padding: 60px 40px;
+      text-align: center;
+      box-shadow: 0 8px 40px rgba(155, 95, 192, 0.1);
+    }
+
+    .waitlist h2 { margin-bottom: 10px; }
+
+    .waitlist p {
+      color: var(--muted);
+      font-size: 1rem;
+      margin-bottom: 32px;
+      line-height: 1.6;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 10px;
+      max-width: 440px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+    }
+
+    .form-row input[type="email"] {
+      flex: 1;
+      min-width: 200px;
+      padding: 14px 20px;
+      border-radius: 100px;
+      border: 2px solid rgba(155,95,192,0.2);
+      background: #fff;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.95rem;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .form-row input[type="email"]::placeholder { color: #c4a8d4; }
+
+    .form-row input[type="email"]:focus {
+      border-color: var(--plum);
+    }
+
+    .btn {
+      padding: 14px 28px;
+      border-radius: 100px;
+      border: none;
+      background: linear-gradient(135deg, #c06fc4, #7b4fa3);
+      color: #fff;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.15s;
+      white-space: nowrap;
+    }
+
+    .btn:hover { opacity: 0.9; transform: scale(1.03); }
+    .btn:active { transform: scale(0.97); }
+
+    .success-msg {
+      display: none;
+      margin-top: 16px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--plum);
+    }
+
+    .success-msg.show { display: block; }
+
+    .fine-print {
+      margin-top: 16px;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 30px 24px 40px;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 520px) {
+      .waitlist { padding: 44px 24px; border-radius: 24px; }
+      .form-row { flex-direction: column; }
+      .form-row input[type="email"], .btn { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="logo">TinyCone<span> ✦</span></div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="badge">Coming Soon to the App Store</div>
+    <h1>Your camera roll,<br><span class="highlight">finally organized.</span></h1>
+    <p class="hero-sub">
+      TinyCone makes it effortless to sort, curate, and relive your favorite memories — all in one beautiful place.
+    </p>
+
+    <!-- phone mockup -->
+    <div class="phone-wrap">
+      <div class="phone">
+        <div class="phone-notch"></div>
+        <div class="photo-grid">
+          <div class="photo-cell"></div>
+          <div class="photo-cell"></div>
+          <div class="photo-cell"></div>
+          <div class="photo-cell"></div>
+          <div class="photo-cell"></div>
+          <div class="photo-cell"></div>
+          <div class="photo-cell"></div>
+          <div class="photo-cell"></div>
+          <div class="photo-cell"></div>
+        </div>
+        <div class="phone-label">My Albums ✦</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features">
+    <p class="section-label">What you'll love</p>
+    <h2>Made for the photos<br>that matter most</h2>
+    <div class="cards">
+      <div class="card">
+        <span class="card-icon">✨</span>
+        <h3>Smart Albums</h3>
+        <p>TinyCone automatically groups your photos by moments, people, and vibes — no manual sorting needed.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">🌸</span>
+        <h3>Beautiful Layouts</h3>
+        <p>Show off your memories with stunning grid and collage views that feel like a personal magazine.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">🔒</span>
+        <h3>Private & Secure</h3>
+        <p>Your photos stay yours. Everything lives on-device — no cloud upload required, ever.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WAITLIST -->
+  <section style="padding: 0 24px;">
+    <div class="waitlist">
+      <h2>Be the first to know ✦</h2>
+      <p>Join the waitlist and get early access when TinyCone launches on the App Store.</p>
+      <form class="form-row" id="waitlistForm" onsubmit="handleSubmit(event)">
+        <input type="email" id="emailInput" placeholder="your@email.com" required />
+        <button class="btn" type="submit">Join Waitlist</button>
+      </form>
+      <p class="success-msg" id="successMsg">You're on the list! We'll be in touch soon 🌸</p>
+      <p class="fine-print">No spam, ever. Just one email when we launch.</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 TinyCone &nbsp;·&nbsp; Made with love ✦</p>
+  </footer>
+
+  <script>
+    function handleSubmit(e) {
+      e.preventDefault();
+      const email = document.getElementById('emailInput').value.trim();
+      if (!email) return;
+
+      // Replace this with your real backend / form service call
+      console.log('Waitlist signup:', email);
+
+      document.getElementById('waitlistForm').style.display = 'none';
+      document.getElementById('successMsg').classList.add('show');
+    }
+  </script>
+
+</body>
+</html>
