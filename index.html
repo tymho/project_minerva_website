@@ -330,6 +330,11 @@
       color: var(--muted);
     }
 
+    .footer-links { margin-top: 8px; }
+    .footer-links a { color: var(--muted); text-decoration: underline; text-underline-offset: 2px; }
+    .footer-links a:hover { color: var(--plum); }
+    .footer-links .sep { opacity: 0.5; margin: 0 6px; }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 520px) {
       .waitlist { padding: 44px 24px; border-radius: 24px; }
@@ -439,6 +444,11 @@
   <!-- FOOTER -->
   <footer>
     <p>© 2026 TinyCone &nbsp;·&nbsp; Made with love ✦</p>
+    <p class="footer-links">
+      <a href="/terms/">Terms of Use</a>
+      <span class="sep">·</span>
+      <a href="/privacy/">Privacy Policy</a>
+    </p>
   </footer>
 
 

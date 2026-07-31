@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Use — TinyCone</title>
+  <meta name="description" content="Terms of Use and End User License Agreement for the TinyCone iOS app." />
+  <link rel="canonical" href="https://tinycone.com/terms/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --rose:    #f4a7b9;
+      --blush:   #fce4ec;
+      --lilac:   #e8d5f5;
+      --plum:    #9b5fc0;
+      --soft-bg: #fdf6fb;
+      --text:    #3d2550;
+      --muted:   #9b7aad;
+      --white:   #ffffff;
+      --radius:  18px;
+    }
+
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: var(--soft-bg);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 22px 40px;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, #c06fc4, #7b4fa3);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -0.5px;
+      text-decoration: none;
+    }
+
+    .logo span { font-weight: 400; }
+
+    /* ── DOC ── */
+    .doc {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 20px 24px 80px;
+    }
+
+    .doc-head {
+      background: linear-gradient(135deg, #f3e8fb, #fce4ec);
+      border-radius: 32px;
+      padding: 48px 40px;
+      text-align: center;
+      margin-bottom: 44px;
+      box-shadow: 0 8px 40px rgba(155, 95, 192, 0.1);
+    }
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      font-weight: 900;
+      letter-spacing: -1px;
+      line-height: 1.15;
+      margin-bottom: 10px;
+    }
+
+    .updated {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--plum);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .intro {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 26px 28px;
+      box-shadow: 0 4px 20px rgba(155, 95, 192, 0.08);
+      margin-bottom: 40px;
+      font-size: 1rem;
+    }
+
+    h2 {
+      font-size: 1.3rem;
+      font-weight: 900;
+      letter-spacing: -0.3px;
+      margin: 40px 0 12px;
+      scroll-margin-top: 20px;
+    }
+
+    h2 .num {
+      color: var(--plum);
+      margin-right: 8px;
+      font-weight: 800;
+    }
+
+    h3 {
+      font-size: 1.02rem;
+      font-weight: 800;
+      margin: 24px 0 8px;
+    }
+
+    p, li { font-size: 0.96rem; }
+    p { margin-bottom: 14px; }
+
+    ul, ol { margin: 0 0 16px 22px; }
+    li { margin-bottom: 8px; }
+
+    a { color: var(--plum); text-decoration: underline; text-underline-offset: 2px; }
+    a:hover { opacity: 0.75; }
+
+    strong { font-weight: 800; }
+
+    .callout {
+      background: var(--white);
+      border-left: 4px solid var(--plum);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin: 20px 0 24px;
+      box-shadow: 0 4px 20px rgba(155, 95, 192, 0.08);
+    }
+
+    .callout p:last-child, .callout ul:last-child, .callout li:last-child { margin-bottom: 0; }
+
+    /* clearly-marked values you must fill in before publishing */
+    .todo {
+      background: #ffe9a8;
+      color: #7a5800;
+      font-weight: 800;
+      padding: 1px 6px;
+      border-radius: 5px;
+      white-space: nowrap;
+    }
+
+    .caps {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    /* ── TOC ── */
+    .toc {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      box-shadow: 0 4px 20px rgba(155, 95, 192, 0.08);
+      margin-bottom: 8px;
+    }
+
+    .toc p.section-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--plum);
+      margin-bottom: 12px;
+    }
+
+    .toc ol {
+      margin: 0;
+      padding-left: 20px;
+      columns: 2;
+      column-gap: 28px;
+    }
+
+    .toc li { margin-bottom: 5px; font-size: 0.9rem; break-inside: avoid; }
+    .toc a { text-decoration: none; color: var(--text); }
+    .toc a:hover { color: var(--plum); text-decoration: underline; }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 30px 24px 40px;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    footer a { color: var(--muted); }
+    footer .sep { opacity: 0.5; margin: 0 8px; }
+
+    @media (max-width: 600px) {
+      .doc-head { padding: 36px 24px; border-radius: 24px; }
+      .toc ol { columns: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="logo" href="/">TinyCone<span> ✦</span></a>
+  </nav>
+
+  <main class="doc">
+
+    <div class="doc-head">
+      <h1>Terms of Use</h1>
+      <p class="updated">Last updated: July 31, 2026</p>
+    </div>
+
+    <div class="intro">
+      <p>These Terms of Use (the <strong>“Terms”</strong>) are a binding agreement between you and
+      <span class="todo">[COMPANY LEGAL NAME, e.g. TinyCone Labs LLC]</span>, a
+      <span class="todo">[STATE]</span> <span class="todo">[limited liability company / corporation]</span>
+      (<strong>“TinyCone,” “we,” “us,”</strong> or <strong>“our”</strong>), governing your use of the TinyCone
+      mobile application and any related services (together, the <strong>“App”</strong>).</p>
+      <p style="margin-bottom:0;"><strong>By downloading, installing, or using the App, you agree to these Terms.</strong>
+      If you do not agree, do not use the App and delete it from your device. These Terms also serve as the
+      end user license agreement (EULA) for the App.</p>
+    </div>
+
+    <div class="toc">
+      <p class="section-label">Contents</p>
+      <ol>
+        <li><a href="#eligibility">Eligibility</a></li>
+        <li><a href="#license">License to use the App</a></li>
+        <li><a href="#restrictions">Restrictions</a></li>
+        <li><a href="#your-content">Your photos and content</a></li>
+        <li><a href="#subscriptions">Subscriptions and payment</a></li>
+        <li><a href="#cancel">Cancellation and refunds</a></li>
+        <li><a href="#changes-app">Changes to the App</a></li>
+        <li><a href="#ip">Intellectual property</a></li>
+        <li><a href="#third-party">Third-party services</a></li>
+        <li><a href="#privacy">Privacy</a></li>
+        <li><a href="#termination">Termination</a></li>
+        <li><a href="#disclaimer">Disclaimer of warranties</a></li>
+        <li><a href="#liability">Limitation of liability</a></li>
+        <li><a href="#indemnity">Indemnification</a></li>
+        <li><a href="#apple">Apple-specific terms</a></li>
+        <li><a href="#law">Governing law and disputes</a></li>
+        <li><a href="#changes-terms">Changes to these Terms</a></li>
+        <li><a href="#general">General</a></li>
+        <li><a href="#contact">Contact us</a></li>
+      </ol>
+    </div>
+
+    <h2 id="eligibility"><span class="num">1.</span>Eligibility</h2>
+    <p>You must be at least 13 years old to use the App. If you are under the age of majority where you live,
+    you may use the App only with the involvement and consent of a parent or legal guardian, who agrees to be
+    bound by these Terms on your behalf. By using the App you represent that you meet these requirements and
+    that you are not barred from using the App under any applicable law.</p>
+
+    <h2 id="license"><span class="num">2.</span>License to use the App</h2>
+    <p>Subject to your compliance with these Terms, we grant you a limited, non-exclusive, non-transferable,
+    non-sublicensable, revocable license to download and use one copy of the App on any Apple-branded device
+    that you own or control, as permitted by the Apple Media Services Terms and Conditions and the
+    <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener">Apple Standard EULA</a>.</p>
+    <p>This is a license, not a sale. We and our licensors retain all right, title, and interest in and to the App.</p>
+
+    <h2 id="restrictions"><span class="num">3.</span>Restrictions</h2>
+    <p>You agree not to, and not to permit anyone else to:</p>
+    <ul>
+      <li>copy, modify, translate, or create derivative works of the App;</li>
+      <li>reverse engineer, decompile, or disassemble the App, or attempt to derive its source code, except to
+      the extent that applicable law expressly permits this despite this limitation;</li>
+      <li>rent, lease, lend, sell, redistribute, or sublicense the App;</li>
+      <li>remove, obscure, or alter any proprietary notices in the App;</li>
+      <li>use the App to store, organize, or distribute content that is unlawful, including child sexual abuse
+      material or content that infringes another person’s rights;</li>
+      <li>circumvent, disable, or interfere with any security, purchase verification, or usage-limiting feature
+      of the App, including any mechanism that enforces subscription entitlements; or</li>
+      <li>use automated means to access the App in a way that degrades or disrupts it.</li>
+    </ul>
+
+    <h2 id="your-content"><span class="num">4.</span>Your photos and content</h2>
+    <p>Your photos, videos, albums, captions, and any other content you bring into the App
+    (<strong>“Your Content”</strong>) belong to you. We do not claim ownership of Your Content.</p>
+    <p>TinyCone is designed to work on your device. The App accesses your photo library only after you grant
+    permission through iOS, and it processes and organizes Your Content locally on your device. We do not
+    upload Your Content to our servers, and we do not view, sell, or share Your Content. See our
+    <a href="/privacy/">Privacy Policy</a> for details on what limited information we do collect.</p>
+    <p><strong>You are responsible for backing up Your Content.</strong> The App is not a backup service. Deleting
+    the App, resetting your device, or losing your device may result in the loss of albums, organization, or
+    other data the App stores locally, and we cannot recover it for you.</p>
+
+    <h2 id="subscriptions"><span class="num">5.</span>Subscriptions and payment</h2>
+    <p>The App offers optional auto-renewing subscriptions (<strong>“TinyCone Premium”</strong>) that unlock
+    additional features. Subscriptions are sold and processed by Apple through your Apple Account — we never
+    receive or store your payment card details.</p>
+
+    <h3>Plans and pricing</h3>
+    <ul>
+      <li><span class="todo">[PLAN NAME, e.g. TinyCone Premium Monthly]</span> — <span class="todo">[PRICE]</span> per month</li>
+      <li><span class="todo">[PLAN NAME, e.g. TinyCone Premium Yearly]</span> — <span class="todo">[PRICE]</span> per year</li>
+    </ul>
+    <p>Prices are shown in the App in your local currency before you confirm any purchase, and the price shown
+    at the point of purchase controls. Prices may vary by region and are subject to change; any price change
+    will be communicated to you in advance and, where required, will take effect only after you consent or on
+    your next renewal following notice.</p>
+
+    <div class="callout">
+      <h3 style="margin-top:0;">How auto-renewal works</h3>
+      <ul>
+        <li>Payment is charged to your Apple Account at confirmation of purchase.</li>
+        <li>Your subscription <strong>renews automatically</strong> for the same period unless auto-renew is
+        turned off at least <strong>24 hours before the end of the current period</strong>.</li>
+        <li>Your Apple Account is charged for renewal within 24 hours before the end of the current period, at
+        the then-current price for your plan.</li>
+        <li>You can manage your subscription and turn off auto-renew in your device’s
+        <strong>Settings → your name → Subscriptions</strong> at any time after purchase.</li>
+        <li>Turning off auto-renew stops future charges; it does not cancel the current period, and the current
+        period is not refunded on a pro-rata basis.</li>
+        <li>If a free trial is offered, any unused portion of that free trial is forfeited when you purchase a
+        subscription to the same content, where applicable.</li>
+      </ul>
+    </div>
+
+    <h3>Restoring purchases</h3>
+    <p>If you reinstall the App or set up a new device, use the “Restore Purchases” option in the App to
+    reactivate an active subscription linked to the same Apple Account.</p>
+
+    <h2 id="cancel"><span class="num">6.</span>Cancellation and refunds</h2>
+    <p>You may cancel at any time through your Apple Account subscription settings. Because Apple is the
+    merchant of record for in-app purchases, <strong>all billing and refunds are handled by Apple</strong> under
+    the Apple Media Services Terms and Conditions. We cannot issue refunds directly. You can request a refund
+    from Apple at <a href="https://reportaproblem.apple.com" target="_blank" rel="noopener">reportaproblem.apple.com</a>.</p>
+    <p>Nothing in this section limits any statutory cancellation or refund right you have under the consumer
+    protection laws of your country or state.</p>
+
+    <h2 id="changes-app"><span class="num">7.</span>Changes to the App</h2>
+    <p>We may add, change, or remove features of the App over time, and we may release updates. If we
+    materially reduce a core feature that your paid subscription provides, we will give you reasonable notice
+    and you may cancel your subscription as described above. We may also discontinue the App entirely; if we do
+    so while you hold an active subscription, we will stop future renewals.</p>
+
+    <h2 id="ip"><span class="num">8.</span>Intellectual property</h2>
+    <p>The App, including its software, design, layouts, text, graphics, and the TinyCone name and logo, is
+    owned by us and our licensors and is protected by copyright, trademark, and other laws. These Terms grant
+    you no right to use our trademarks or branding without our prior written permission.</p>
+    <p>If you send us feedback, suggestions, or ideas about the App, you grant us a perpetual, irrevocable,
+    worldwide, royalty-free license to use them for any purpose without obligation to you.</p>
+
+    <h2 id="third-party"><span class="num">9.</span>Third-party services</h2>
+    <p>The App relies on services provided by Apple and on third-party analytics and crash-reporting providers.
+    Your use of those services is subject to their own terms. We are not responsible for third-party services
+    or for any content or links the App may surface from them.</p>
+
+    <h2 id="privacy"><span class="num">10.</span>Privacy</h2>
+    <p>Our <a href="/privacy/">Privacy Policy</a> explains what information we collect and how we use it. It is
+    incorporated into these Terms by reference.</p>
+
+    <h2 id="termination"><span class="num">11.</span>Termination</h2>
+    <p>You may end this agreement at any time by deleting the App from your devices (this does not, on its own,
+    cancel a subscription — see Section 6). We may suspend or terminate your license immediately if you
+    materially breach these Terms, including the restrictions in Section 3. Sections 4, 8, and 12 through 18
+    survive termination.</p>
+
+    <h2 id="disclaimer"><span class="num">12.</span>Disclaimer of warranties</h2>
+    <p class="caps">The App is provided “as is” and “as available,” without warranty of any kind. To the
+    maximum extent permitted by law, we disclaim all warranties, express or implied, including the implied
+    warranties of merchantability, fitness for a particular purpose, title, and non-infringement. We do not
+    warrant that the App will be uninterrupted, error-free, or secure, that any automatic organization,
+    grouping, or suggestion will be accurate, or that data stored locally by the App will not be lost.</p>
+    <p>Some jurisdictions do not allow the exclusion of implied warranties, so some of the above may not apply
+    to you. In that case, such warranties are limited to the minimum period permitted by law.</p>
+
+    <h2 id="liability"><span class="num">13.</span>Limitation of liability</h2>
+    <p class="caps">To the maximum extent permitted by law, TinyCone and its officers, employees, and agents
+    will not be liable for any indirect, incidental, special, consequential, exemplary, or punitive damages, or
+    for any loss of data, photos, profits, goodwill, or business, arising out of or relating to the App or these
+    Terms, whether based on contract, tort, or any other theory, even if we have been advised of the
+    possibility of such damages.</p>
+    <p class="caps">Our total aggregate liability for all claims relating to the App or these Terms will not
+    exceed the greater of (a) the amount you paid us or Apple for the App in the 12 months before the event
+    giving rise to the claim, or (b) fifty US dollars (US$50).</p>
+    <p>Some jurisdictions do not allow the exclusion or limitation of certain damages, so some of the above may
+    not apply to you. Nothing in these Terms limits liability for fraud, gross negligence, willful misconduct,
+    or death or personal injury caused by negligence, where such limitation is not permitted by law.</p>
+
+    <h2 id="indemnity"><span class="num">14.</span>Indemnification</h2>
+    <p>You agree to indemnify and hold harmless TinyCone from any claims, damages, liabilities, and reasonable
+    legal fees arising out of your misuse of the App, your violation of these Terms, or your violation of any
+    law or the rights of a third party.</p>
+
+    <h2 id="apple"><span class="num">15.</span>Apple-specific terms</h2>
+    <p>The following applies because you obtained the App through the Apple App Store:</p>
+    <ul>
+      <li>These Terms are between you and TinyCone only, <strong>not with Apple</strong>. TinyCone, not Apple,
+      is solely responsible for the App and its content.</li>
+      <li>Apple has no obligation to furnish any maintenance or support services for the App.</li>
+      <li>If the App fails to conform to any applicable warranty, you may notify Apple, and Apple will refund
+      the purchase price for the App (if any). To the maximum extent permitted by law, Apple has no other
+      warranty obligation whatsoever with respect to the App.</li>
+      <li>TinyCone, not Apple, is responsible for addressing any claims relating to the App, including product
+      liability claims, any claim that the App fails to conform to a legal or regulatory requirement, and
+      claims arising under consumer protection or similar legislation.</li>
+      <li>In the event of a third-party claim that the App infringes that party’s intellectual property rights,
+      TinyCone, not Apple, is solely responsible for the investigation, defense, settlement, and discharge of
+      that claim.</li>
+      <li>You represent that you are not located in a country subject to a U.S. Government embargo or designated
+      as a “terrorist supporting” country, and that you are not listed on any U.S. Government list of prohibited
+      or restricted parties.</li>
+      <li><strong>Apple and Apple’s subsidiaries are third-party beneficiaries of these Terms</strong>, and upon
+      your acceptance, Apple will have the right (and will be deemed to have accepted the right) to enforce
+      these Terms against you as a third-party beneficiary.</li>
+    </ul>
+
+    <h2 id="law"><span class="num">16.</span>Governing law and disputes</h2>
+    <p>These Terms are governed by the laws of the State of <span class="todo">[STATE]</span>, USA, without
+    regard to its conflict-of-laws rules. You and TinyCone agree to the exclusive jurisdiction of the state and
+    federal courts located in <span class="todo">[COUNTY, STATE]</span> for any dispute not subject to
+    small-claims court.</p>
+    <p>If you are a consumer residing in the European Union, the United Kingdom, or another jurisdiction whose
+    law grants you the protection of your local courts and mandatory consumer laws, nothing in this section
+    deprives you of that protection.</p>
+
+    <h2 id="changes-terms"><span class="num">17.</span>Changes to these Terms</h2>
+    <p>We may update these Terms from time to time. When we do, we will revise the “Last updated” date at the
+    top of this page. If a change is material, we will give you notice in the App or by other reasonable means
+    before it takes effect. Continuing to use the App after a change takes effect means you accept the revised
+    Terms.</p>
+
+    <h2 id="general"><span class="num">18.</span>General</h2>
+    <p>These Terms, together with the Privacy Policy, are the entire agreement between you and us regarding the
+    App. If any provision is held unenforceable, the rest remains in effect. Our failure to enforce a provision
+    is not a waiver of it. You may not assign these Terms; we may assign them in connection with a merger,
+    acquisition, or sale of assets.</p>
+
+    <h2 id="contact"><span class="num">19.</span>Contact us</h2>
+    <p>Questions about these Terms? Email us at
+    <a href="mailto:support@tinycone.com">support@tinycone.com</a>, or write to
+    <span class="todo">[COMPANY LEGAL NAME, MAILING ADDRESS]</span>.</p>
+
+  </main>
+
+  <footer>
+    <p>
+      © 2026 TinyCone
+      <span class="sep">·</span><a href="/">Home</a>
+      <span class="sep">·</span><a href="/privacy/">Privacy Policy</a>
+    </p>
+  </footer>
+
+</body>
+</html>
