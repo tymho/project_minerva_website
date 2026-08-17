@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Privacy Policy — TinyCone</title>
-  <meta name="description" content="How the TinyCone iOS app handles your photos and personal information." />
+  <title>Privacy Policy — Chunky Time</title>
+  <meta name="description" content="How the Chunky Time iOS app handles your photos and personal information." />
   <link rel="canonical" href="https://tinycone.com/privacy/" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -233,22 +233,22 @@
 <body>
 
   <nav>
-    <a class="logo" href="/">TinyCone<span> ✦</span></a>
+    <a class="logo" href="/">Chunky Time<span> ✦</span></a>
   </nav>
 
   <main class="doc">
 
     <div class="doc-head">
       <h1>Privacy Policy</h1>
-      <p class="updated">Last updated: July 31, 2026</p>
+      <p class="updated">Last updated: August 16, 2026</p>
     </div>
 
     <div class="intro">
-      <p>This Privacy Policy explains how <span class="todo">[COMPANY LEGAL NAME, e.g. TinyCone Labs LLC]</span>
+      <p>This Privacy Policy explains how <strong>TinyCone LLC</strong>
       (<strong>“TinyCone,” “we,” “us,”</strong> or <strong>“our”</strong>) handles information in connection with
-      the TinyCone iOS app (the <strong>“App”</strong>) and the website at tinycone.com (the
+      the Chunky Time iOS app (the <strong>“App”</strong>) and the website at tinycone.com (the
       <strong>“Site”</strong>).</p>
-      <p style="margin-bottom:0;">TinyCone is built to work on your device. <strong>Your photos and videos never
+      <p style="margin-bottom:0;">Chunky Time is built to work on your device. <strong>Your photos and videos never
       leave your device through the App</strong> — we do not upload them, store them on our servers, view them,
       or sell them.</p>
     </div>
@@ -292,7 +292,7 @@
     <h2 id="photos"><span class="num">1.</span>Your photos and photo library</h2>
     <p>To do its job, the App asks iOS for permission to access your photo library. You choose whether to grant
     full access, limited access to selected photos, or no access at all, and you can change that choice at any
-    time in <strong>Settings → Privacy &amp; Security → Photos → TinyCone</strong>.</p>
+    time in <strong>Settings → Privacy &amp; Security → Photos → Chunky Time</strong>.</p>
     <p>When you grant access:</p>
     <ul>
       <li>Your photos, videos, and their metadata (such as dates and location tags embedded by your camera) are
@@ -305,7 +305,7 @@
     We have no copy to delete and no way to recover it for you.</p>
 
     <h2 id="collect"><span class="num">2.</span>Information we collect</h2>
-    <p>The limited information we do collect falls into three categories:</p>
+    <p>The limited information we do collect falls into these categories:</p>
 
     <div class="table-wrap">
       <table>
@@ -331,27 +331,47 @@
           </tr>
           <tr>
             <td><strong>Purchase status</strong><br>(App)</td>
-            <td>Whether a subscription is active, plan type, transaction identifiers from Apple</td>
+            <td>Whether a subscription is active, plan type, transaction identifiers from Apple, and the same
+            random installation identifier used for analytics, linked to your subscription record so purchase
+            and product-usage data can be joined for reporting</td>
             <td>To unlock paid features and restore purchases. Apple processes the payment; we never see your
-            card details.</td>
+            card details. Subscription status itself is managed for us by RevenueCat.</td>
           </tr>
           <tr>
             <td><strong>Email address</strong><br>(Site)</td>
             <td>The email you type into the waitlist form on tinycone.com</td>
-            <td>To email you once when TinyCone launches. Only collected if you submit the form.</td>
+            <td>To email you once when Chunky Time launches. Only collected if you submit the form.</td>
+          </tr>
+          <tr>
+            <td><strong>Support requests</strong><br>(App)</td>
+            <td>The message and email address you submit through the in-app “Contact support” form, and any
+            diagnostic details you choose to paste in (app version, OS, storage and photo library size, item
+            counts, subscription status, and the analytics/support identifiers described above) using the
+            optional “Copy debug details” tool in Troubleshooting. Only collected if you submit the form.</td>
+            <td>To respond to your support request and diagnose issues you report.</td>
+          </tr>
+          <tr>
+            <td><strong>Feedback board</strong><br>(App)</td>
+            <td>The display name you choose to enter, and your device’s vendor identifier (iOS
+            <code>identifierForVendor</code>). Only collected if you open the optional in-app feedback board.</td>
+            <td>To identify you on our public feedback board so we can follow up on ideas you post, and so
+            other posts you make are attributed consistently. <strong>The name you enter is shown publicly</strong>
+            to other users of the board.</td>
           </tr>
         </tbody>
       </table>
     </div>
 
-    <p>Analytics and crash reporting in the App are provided by
-    <span class="todo">[ANALYTICS PROVIDER, e.g. TelemetryDeck / Firebase / Sentry]</span>. Waitlist emails
-    submitted on the Site are stored in a Google Sheet via Google Apps Script.</p>
+    <p>Analytics and crash/error reporting in the App are both provided by <strong>PostHog</strong>. Waitlist
+    emails submitted on the Site, and support requests submitted through the in-app Contact Support form, are
+    processed by <strong>Google</strong> (Sheets / Forms / Apps Script). The optional public feedback board is
+    powered by <strong>Userjot</strong>.</p>
 
     <h2 id="dont-collect"><span class="num">3.</span>What we do not collect</h2>
     <ul>
       <li>Your photos, videos, or any thumbnails, embeddings, or content derived from them.</li>
-      <li>Your name, address, phone number, or date of birth.</li>
+      <li>Your name, address, phone number, or date of birth — except a display name you choose to type in if
+      you use the optional feedback board, or your email address if you submit the waitlist or support form.</li>
       <li>Your precise location. The App does not request location permission.</li>
       <li>Your contacts, calendar, microphone, or health data.</li>
       <li>Payment card numbers or billing details — those go to Apple, not to us.</li>
@@ -389,9 +409,14 @@
     on our behalf, under contract, and only for the purposes we specify:</p>
     <ul>
       <li><strong>Apple</strong> — processes subscription purchases and provides App Store analytics.</li>
-      <li><strong><span class="todo">[ANALYTICS PROVIDER]</span></strong> — processes usage analytics and crash
-      reports.</li>
-      <li><strong>Google</strong> — stores waitlist emails submitted on the Site (Google Sheets / Apps Script).</li>
+      <li><strong>RevenueCat</strong> — manages subscription status and entitlements on our behalf. We link
+      your random installation identifier to your RevenueCat subscriber record so purchase and product-usage
+      data can be joined for reporting; RevenueCat does not receive your name or payment details.</li>
+      <li><strong>PostHog</strong> — processes usage analytics and crash/error reports.</li>
+      <li><strong>Google</strong> — stores waitlist emails submitted on the Site (Google Sheets / Apps Script),
+      and processes support requests submitted through the in-app Contact Support form (Google Forms).</li>
+      <li><strong>Userjot</strong> — powers our optional, public feedback board. If you open it, Userjot
+      receives your device’s vendor identifier and the display name you enter.</li>
       <li><strong>GitHub</strong> — hosts this website (GitHub Pages), which processes standard server request
       logs including IP addresses.</li>
     </ul>
@@ -411,12 +436,16 @@
       <li><strong>On-device data</strong> (photos, albums, organization) — kept until you delete it or delete the
       App. We never hold a copy.</li>
       <li><strong>Analytics and crash data</strong> — retained for up to
-      <span class="todo">[e.g. 14 months]</span>, then deleted or aggregated so it no longer identifies a
+      <strong>2 years</strong>, then deleted or aggregated so it no longer identifies a
       device.</li>
       <li><strong>Waitlist emails</strong> — kept until launch or until you ask us to remove you, whichever comes
-      first, and deleted no later than <span class="todo">[e.g. 12 months]</span> after the launch email.</li>
+      first, and deleted no later than <strong>12 months</strong> after the launch email.</li>
       <li><strong>Purchase records</strong> — retained as long as needed to support your subscription and to meet
       tax and accounting obligations.</li>
+      <li><strong>Support requests</strong> — kept as long as needed to resolve your request, and no longer than
+      <strong>2 years</strong> after your last message.</li>
+      <li><strong>Feedback board entries</strong> — kept until you ask us to remove them, or per Userjot’s own
+      retention practices for the board.</li>
     </ul>
 
     <h2 id="security"><span class="num">9.</span>Security</h2>
@@ -433,12 +462,15 @@
     <p>Because we hold so little data, you can exercise most of these rights directly:</p>
     <ul>
       <li><strong>Photos and on-device data:</strong> revoke photo access in iOS Settings, or delete the App.</li>
-      <li><strong>Analytics:</strong> turn off analytics sharing in the App’s settings, and use
-      <strong>Settings → Privacy &amp; Security → Analytics &amp; Improvements</strong> on iOS.</li>
+      <li><strong>Analytics:</strong> this data is tied only to a random installation identifier, never your
+      name or Apple Account. Deleting the App stops further collection tied to that identifier. To request
+      deletion of analytics or crash data already collected, email us.</li>
       <li><strong>Waitlist email:</strong> email us and we will delete it, or use the unsubscribe link in any
       email we send.</li>
+      <li><strong>Support requests:</strong> email us to request deletion of a past support conversation.</li>
+      <li><strong>Feedback board:</strong> email us to have a post or your display name removed from the board.</li>
     </ul>
-    <p>For anything else, email <a href="mailto:privacy@tinycone.com">privacy@tinycone.com</a>. We will respond
+    <p>For anything else, email <a href="mailto:team@tinycone.com">team@tinycone.com</a>. We will respond
     within the time required by applicable law (generally 30 days, or 45 days in California). We may need to ask
     for information to verify your request. If you are in the EEA or UK, you also have the right to complain to
     your local data protection authority.</p>
@@ -447,9 +479,11 @@
     <p>Under the California Consumer Privacy Act as amended (CCPA/CPRA), we disclose the following for the
     preceding 12 months:</p>
     <ul>
-      <li><strong>Categories collected:</strong> identifiers (a random installation identifier; an email address
-      if you joined the waitlist), internet or other electronic network activity information (feature usage,
-      crash diagnostics), and commercial information (subscription status).</li>
+      <li><strong>Categories collected:</strong> identifiers (a random installation identifier; a device vendor
+      identifier if you use the feedback board; an email address if you joined the waitlist or submitted a
+      support request), internet or other electronic network activity information (feature usage, crash
+      diagnostics), commercial information (subscription status), and, only if you choose to provide it,
+      your name and free-text messages (support requests, feedback board).</li>
       <li><strong>Sources:</strong> directly from you, and automatically from your device through the App and
       Site.</li>
       <li><strong>Business purposes:</strong> those listed in Section 4.</li>
@@ -467,9 +501,9 @@
     as the European Commission’s Standard Contractual Clauses. Contact us for a copy of the safeguards we use.</p>
 
     <h2 id="children"><span class="num">13.</span>Children’s privacy</h2>
-    <p>TinyCone is not directed to children under 13, and we do not knowingly collect personal information from
+    <p>Chunky Time is not directed to children under 13, and we do not knowingly collect personal information from
     them. If you believe a child under 13 has provided us with personal information, email
-    <a href="mailto:privacy@tinycone.com">privacy@tinycone.com</a> and we will delete it promptly.</p>
+    <a href="mailto:team@tinycone.com">team@tinycone.com</a> and we will delete it promptly.</p>
 
     <h2 id="changes"><span class="num">14.</span>Changes to this policy</h2>
     <p>We may update this Privacy Policy from time to time. When we do, we will revise the “Last updated” date at
@@ -478,15 +512,14 @@
 
     <h2 id="contact"><span class="num">15.</span>Contact us</h2>
     <p>Questions, requests, or concerns about privacy? Email
-    <a href="mailto:privacy@tinycone.com">privacy@tinycone.com</a>, or write to
-    <span class="todo">[COMPANY LEGAL NAME, MAILING ADDRESS]</span>.</p>
-    <p><span class="todo">[If you have EU/UK users at scale, name your Art. 27 representative here — otherwise delete this line.]</span></p>
+    <a href="mailto:team@tinycone.com">team@tinycone.com</a>, or write to
+    TinyCone LLC, 8401 Mayland Dr Ste A, Richmond, VA 23294-4648, USA.</p>
 
   </main>
 
   <footer>
     <p>
-      © 2026 TinyCone
+      © 2026 TinyCone LLC
       <span class="sep">·</span><a href="/">Home</a>
       <span class="sep">·</span><a href="/terms/">Terms of Use</a>
     </p>
