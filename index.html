@@ -3,456 +3,409 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Chunky Time — Your Photos, Perfectly Organized</title>
+  <title>Chunky Time — Swipe Memories, Free Up Space</title>
+  <meta name="description" content="Chunky Time is the photo organizer for iPhone that makes clearing your camera roll fast and fun. Swipe right to keep, left to archive — with Chunky by your side." />
+  <link rel="canonical" href="https://chunkytime.app/" />
+  <meta name="apple-itunes-app" content="app-id=6802936204" />
+  <meta property="og:title" content="Chunky Time — Swipe Memories, Free Up Space" />
+  <meta property="og:description" content="Swipe right to keep, left to archive. Organize your photos with Chunky!" />
+  <meta property="og:image" content="https://chunkytime.app/assets/screens/home.webp" />
+  <meta name="theme-color" content="#fff8ed" />
+  <link rel="icon" type="image/png" href="assets/chunkytime_app_icon.png" />
+  <link rel="apple-touch-icon" href="assets/chunkytime_app_icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Mali:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --rose:    #f4a7b9;
-      --blush:   #fce4ec;
-      --lilac:   #e8d5f5;
-      --plum:    #9b5fc0;
-      --soft-bg: #fdf6fb;
-      --text:    #3d2550;
-      --muted:   #9b7aad;
-      --white:   #ffffff;
-      --radius:  18px;
+      --cream:     #fff8ed;
+      --paper:     #ead0b0;
+      --kraft:     #ebc699;
+      --ink:       #4a3122;
+      --ink-soft:  #7a5a44;
+      --orange:    #f19400;
+      --keep:      #4ca16b;
+      --archive:   #e73742;
+      --white:     #ffffff;
+      --radius:    22px;
+      --display:   'Mali', 'Nunito', sans-serif;
+      --body:      'Nunito', sans-serif;
+      /* faint paper grain, like the app's surfaces */
+      --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .22 0 0 0 0 .12 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
     }
 
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Nunito', sans-serif;
-      background: var(--soft-bg);
-      color: var(--text);
+      font-family: var(--body);
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.6;
       overflow-x: hidden;
     }
+
+    img { display: block; max-width: 100%; }
+
+    h1, h2, h3, .display { font-family: var(--display); font-weight: 700; line-height: 1.15; }
+
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+    .hl-orange  { color: var(--orange); }
+
+    /* ── BUTTONS ── chunky, outlined, like the app's tab bar */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 26px;
+      border-radius: 18px;
+      border: 2.5px solid var(--ink);
+      background: var(--ink);
+      color: var(--cream);
+      font-family: var(--display);
+      font-size: 1.05rem;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 5px 0 #2b1b12;
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+    }
+
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 7px 0 #2b1b12; }
+    .btn:active { transform: translateY(4px); box-shadow: 0 1px 0 #2b1b12; }
+
+    .btn svg { width: 22px; height: 22px; flex: none; }
+
+    .btn.small { padding: 9px 18px; font-size: 0.92rem; border-radius: 14px; box-shadow: 0 4px 0 #2b1b12; }
 
     /* ── NAV ── */
     nav {
       display: flex;
       align-items: center;
-      justify-content: center;
-      padding: 22px 40px;
+      justify-content: space-between;
+      padding: 18px 0;
     }
 
     .logo {
-      font-size: 1.5rem;
-      font-weight: 900;
-      background: linear-gradient(135deg, #c06fc4, #7b4fa3);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      letter-spacing: -0.5px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--display);
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--ink);
+      text-decoration: none;
     }
 
-    .logo span { font-weight: 400; }
+    .logo img {
+      width: 44px; height: 44px;
+      border-radius: 12px;
+      border: 2.5px solid var(--ink);
+    }
 
     /* ── HERO ── */
     .hero {
-      text-align: center;
-      padding: 60px 24px 80px;
-      position: relative;
-      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+      align-items: center;
+      gap: 40px;
+      padding: 40px 0 72px;
     }
 
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -120px; left: 50%;
-      transform: translateX(-50%);
-      width: 700px; height: 700px;
-      border-radius: 50%;
-      background: radial-gradient(circle, #f9d4e8 0%, transparent 70%);
-      z-index: 0;
-      pointer-events: none;
-    }
-
-    .badge {
-      display: inline-block;
-      background: linear-gradient(135deg, #fce4ec, #e8d5f5);
-      color: var(--plum);
-      font-size: 0.8rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 6px 16px;
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--white);
+      border: 2px solid var(--ink);
       border-radius: 100px;
-      margin-bottom: 24px;
-      position: relative;
-      z-index: 1;
+      padding: 5px 14px;
+      font-family: var(--display);
+      font-weight: 600;
+      font-size: 0.9rem;
+      transform: rotate(-2deg);
+      margin-bottom: 22px;
     }
+
+    .tag .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--keep); }
 
     h1 {
-      font-size: clamp(2.4rem, 6vw, 4.2rem);
-      font-weight: 900;
-      line-height: 1.1;
-      letter-spacing: -1px;
-      max-width: 700px;
-      margin: 0 auto 20px;
-      position: relative;
-      z-index: 1;
-    }
-
-    h1 .highlight {
-      background: linear-gradient(135deg, #c06fc4, #7b4fa3);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      font-size: clamp(2.6rem, 6.2vw, 4.4rem);
+      letter-spacing: -0.5px;
+      margin-bottom: 20px;
     }
 
     .hero-sub {
       font-size: 1.15rem;
-      color: var(--muted);
-      max-width: 480px;
-      margin: 0 auto 40px;
-      line-height: 1.7;
-      position: relative;
-      z-index: 1;
-    }
-
-    /* mockup */
-    .phone-wrap {
-      position: relative;
-      display: inline-block;
-      z-index: 1;
-      margin-top: 10px;
-    }
-
-    .phone {
-      width: 220px;
-      height: 420px;
-      background: linear-gradient(160deg, #f8e8f9, #ead4f7);
-      border-radius: 44px;
-      border: 6px solid #fff;
-      box-shadow:
-        0 30px 80px rgba(155, 95, 192, 0.22),
-        0 8px 24px rgba(155, 95, 192, 0.12),
-        inset 0 0 0 1px rgba(155,95,192,0.1);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 28px 16px 20px;
-      gap: 10px;
-      overflow: hidden;
-    }
-
-    .phone-notch {
-      width: 70px; height: 12px;
-      background: #d8bfe8;
-      border-radius: 100px;
-    }
-
-    .photo-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 6px;
-      width: 100%;
-    }
-
-    .photo-cell {
-      aspect-ratio: 1;
-      border-radius: 10px;
-      background: var(--c, #f2c8e0);
-    }
-
-    .photo-cell:nth-child(1)  { --c: #f9b8cc; }
-    .photo-cell:nth-child(2)  { --c: #d4b8f9; }
-    .photo-cell:nth-child(3)  { --c: #b8d4f9; }
-    .photo-cell:nth-child(4)  { --c: #f9d4b8; }
-    .photo-cell:nth-child(5)  { --c: #b8f9d4; }
-    .photo-cell:nth-child(6)  { --c: #f9f4b8; }
-    .photo-cell:nth-child(7)  { --c: #e8b8f9; }
-    .photo-cell:nth-child(8)  { --c: #b8e8f9; }
-    .photo-cell:nth-child(9)  { --c: #f9cdb8; }
-
-    .phone-label {
-      font-size: 0.65rem;
-      font-weight: 700;
-      color: var(--plum);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      opacity: 0.7;
-    }
-
-    /* ── FEATURES ── */
-    .features {
-      padding: 70px 24px;
-      max-width: 900px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .section-label {
-      font-size: 0.8rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--plum);
-      margin-bottom: 12px;
-    }
-
-    h2 {
-      font-size: clamp(1.8rem, 4vw, 2.6rem);
-      font-weight: 900;
-      letter-spacing: -0.5px;
-      margin-bottom: 48px;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-    }
-
-    .card {
-      background: var(--white);
-      border-radius: var(--radius);
-      padding: 32px 24px;
-      box-shadow: 0 4px 20px rgba(155, 95, 192, 0.08);
-      text-align: left;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 32px rgba(155, 95, 192, 0.14);
-    }
-
-    .card-icon {
-      font-size: 2rem;
-      margin-bottom: 16px;
-      display: block;
-    }
-
-    .card h3 {
-      font-size: 1.1rem;
-      font-weight: 800;
-      margin-bottom: 8px;
-    }
-
-    .card p {
-      font-size: 0.92rem;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-
-    /* ── WAITLIST ── */
-    .waitlist {
-      background: linear-gradient(135deg, #f3e8fb, #fce4ec);
-      border-radius: 32px;
-      max-width: 680px;
-      margin: 0 auto 80px;
-      padding: 60px 40px;
-      text-align: center;
-      box-shadow: 0 8px 40px rgba(155, 95, 192, 0.1);
-    }
-
-    .waitlist h2 { margin-bottom: 10px; }
-
-    .waitlist p {
-      color: var(--muted);
-      font-size: 1rem;
+      color: var(--ink-soft);
+      max-width: 470px;
       margin-bottom: 32px;
-      line-height: 1.6;
     }
 
-    .btn {
-      padding: 14px 28px;
-      border-radius: 100px;
-      border: none;
-      background: linear-gradient(135deg, #c06fc4, #7b4fa3);
-      color: #fff;
-      font-family: 'Nunito', sans-serif;
-      font-size: 0.95rem;
-      font-weight: 800;
-      cursor: pointer;
-      transition: opacity 0.2s, transform 0.15s;
+    .hero-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 20px; }
+
+    .hero-note { font-size: 0.9rem; color: var(--ink-soft); font-weight: 600; }
+
+    .hero-art { position: relative; justify-self: center; width: min(100%, 380px); }
+
+    /* crop the store caption off the top of the screenshot, keep the phone */
+    .hero-phone {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 780 / 1400;
+      object-fit: cover;
+      object-position: bottom;
+    }
+
+    .sticker {
+      position: absolute;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px 8px 10px;
+      border-radius: 16px;
+      border: 4px solid var(--white);
+      color: var(--white);
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 1.05rem;
+      box-shadow: 0 8px 20px rgba(74, 49, 34, 0.18);
       white-space: nowrap;
     }
 
-    .btn:hover { opacity: 0.9; transform: scale(1.03); }
-    .btn:active { transform: scale(0.97); }
-    .btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+    .sticker svg { width: 22px; height: 22px; }
+    .sticker.keep    { background: var(--keep);    top: 22%; right: -10%; transform: rotate(6deg); }
+    .sticker.archive { background: var(--archive); top: 44%; left: -12%;  transform: rotate(-7deg); }
 
-    .waitlist-form {
-      max-width: 440px;
-      margin: 0 auto;
+    /* ── SECTION HEADINGS ── */
+    section { padding: 72px 0; }
+
+    .section-head .eyebrow {
+      font-family: var(--display);
+      font-weight: 600;
+      color: var(--orange);
+      font-size: 1.05rem;
+      margin-bottom: 8px;
     }
 
-    .form-row {
+    h2 { font-size: clamp(2rem, 4.4vw, 2.9rem); margin-bottom: 14px; }
+
+    .section-head { text-align: center; max-width: 620px; margin: 0 auto 48px; }
+    .section-head p { color: var(--ink-soft); font-size: 1.08rem; }
+
+    /* ── GALLERY ── */
+    .gallery {
       display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
+      gap: 18px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding: 8px 24px 24px;
+      margin: 0 auto;
+      max-width: 1400px;
+      scrollbar-width: thin;
+      scrollbar-color: var(--paper) transparent;
     }
 
-    .form-row input[type="email"] {
-      flex: 1;
-      min-width: 200px;
-      padding: 14px 20px;
-      border-radius: 100px;
-      border: 2px solid rgba(155,95,192,0.2);
-      background: #fff;
-      font-family: 'Nunito', sans-serif;
-      font-size: 0.95rem;
-      color: var(--text);
-      outline: none;
-      transition: border-color 0.2s;
+    .gallery img {
+      flex: none;
+      width: 250px;
+      height: auto;
+      aspect-ratio: 780 / 1690;
+      scroll-snap-align: center;
+      border-radius: 24px;
     }
 
-    .form-row input[type="email"]::placeholder { color: #c4a8d4; }
-    .form-row input[type="email"]:focus { border-color: var(--plum); }
-
-    .success-msg {
-      display: none;
-      margin-top: 20px;
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--plum);
+    /* ── PROMISES ── */
+    .promises {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
     }
 
-    .success-msg.show { display: block; }
-
-    .fine-print {
-      margin-top: 16px;
-      font-size: 0.78rem;
-      color: var(--muted);
+    .promise {
+      background: var(--white);
+      border: 2.5px solid var(--ink);
+      border-radius: var(--radius);
+      padding: 28px;
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
     }
+
+    .promise svg { width: 44px; height: 44px; flex: none; }
+    .promise h3 { font-size: 1.3rem; margin-bottom: 6px; }
+    .promise p { color: var(--ink-soft); }
+
+    /* ── FINAL CTA ── */
+    .cta-panel {
+      background: var(--paper) var(--grain);
+      border: 2.5px solid var(--ink);
+      border-radius: 32px;
+      padding: 56px 32px;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 6px 0 rgba(74, 49, 34, 0.25);
+    }
+
+    .cta-panel img.chunky {
+      width: 96px; height: 96px;
+      border-radius: 26px;
+      border: 3px solid var(--ink);
+      margin: 0 auto 20px;
+      transform: rotate(-4deg);
+    }
+
+    .cta-panel p { color: var(--ink-soft); font-size: 1.08rem; max-width: 480px; margin: 0 auto 28px; }
 
     /* ── FOOTER ── */
     footer {
       text-align: center;
-      padding: 30px 24px 40px;
-      font-size: 0.82rem;
-      color: var(--muted);
+      padding: 40px 24px 48px;
+      font-size: 0.88rem;
+      color: var(--ink-soft);
     }
 
     .footer-links { margin-top: 8px; }
-    .footer-links a { color: var(--muted); text-decoration: underline; text-underline-offset: 2px; }
-    .footer-links a:hover { color: var(--plum); }
+    .footer-links a { color: var(--ink-soft); text-decoration: underline; text-underline-offset: 2px; }
+    .footer-links a:hover { color: var(--ink); }
     .footer-links .sep { opacity: 0.5; margin: 0 6px; }
 
     /* ── RESPONSIVE ── */
-    @media (max-width: 520px) {
-      .waitlist { padding: 44px 24px; border-radius: 24px; }
-      .waitlist-form .form-row { flex-direction: column; }
-      .waitlist-form input[type="email"], .waitlist-form .btn { width: 100%; }
+    @media (max-width: 860px) {
+      .hero { grid-template-columns: 1fr; text-align: center; padding-top: 16px; }
+      .hero-sub { margin-left: auto; margin-right: auto; }
+      .hero-cta { justify-content: center; }
+      .hero-art { width: min(80%, 340px); }
+      .promises { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 560px) {
+      section { padding: 56px 0; }
+      nav .btn { display: none; }
+      .sticker { font-size: 0.9rem; padding: 6px 12px 6px 8px; }
+      .sticker.keep { right: -6%; }
+      .sticker.archive { left: -8%; }
+      .gallery img { width: 210px; }
+      .promise { flex-direction: column; }
+      .cta-panel { padding: 44px 22px; border-radius: 26px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .btn { transition: none; }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav>
-    <div class="logo">Chunky Time<span> ✦</span></div>
-  </nav>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="apple" viewBox="0 0 24 24" fill="currentColor"><path d="M16.37 12.6c.02 2.6 2.28 3.47 2.3 3.48-.02.06-.36 1.24-1.19 2.45-.72 1.05-1.46 2.1-2.63 2.12-1.15.02-1.52-.68-2.83-.68-1.32 0-1.73.66-2.82.7-1.13.04-1.99-1.14-2.72-2.19-1.48-2.14-2.61-6.05-1.09-8.69.75-1.31 2.1-2.14 3.57-2.16 1.11-.02 2.16.75 2.84.75.68 0 1.95-.93 3.3-.79.56.02 2.14.23 3.15 1.71-.08.05-1.88 1.1-1.86 3.28M14.2 5.2c.6-.73 1.01-1.75.9-2.76-.87.03-1.92.58-2.54 1.31-.56.64-1.05 1.67-.92 2.66.97.08 1.96-.49 2.56-1.21"/></symbol></svg>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="badge">Coming Soon to the App Store</div>
-    <h1>Your camera roll,<br><span class="highlight">finally organized.</span></h1>
-    <p class="hero-sub">
-      Chunky Time makes it effortless to sort, curate, and relive your favorite memories — all in one beautiful place.
-    </p>
+  <div class="wrap">
+    <!-- NAV -->
+    <nav>
+      <a class="logo" href="/"><img src="assets/chunkytime_app_icon.png" alt="" width="44" height="44" />Chunky Time</a>
+      <a class="btn small" href="https://apps.apple.com/us/app/photo-organizer-chunky-time/id6802936204">Get the app</a>
+    </nav>
 
-    <!-- phone mockup -->
-    <div class="phone-wrap">
-      <div class="phone">
-        <div class="phone-notch"></div>
-        <div class="photo-grid">
-          <div class="photo-cell"></div>
-          <div class="photo-cell"></div>
-          <div class="photo-cell"></div>
-          <div class="photo-cell"></div>
-          <div class="photo-cell"></div>
-          <div class="photo-cell"></div>
-          <div class="photo-cell"></div>
-          <div class="photo-cell"></div>
-          <div class="photo-cell"></div>
+    <!-- HERO -->
+    <header class="hero">
+      <div>
+        <span class="tag"><span class="dot"></span>Free on the App Store</span>
+        <h1>Organize your photos with <span class="hl-orange">Chunky!</span></h1>
+        <p class="hero-sub">
+          Swipe right to keep, left to archive. Chunky Time turns that never-ending
+          “clean up my camera roll” to-do into the most satisfying few minutes of your day.
+        </p>
+        <div class="hero-cta">
+          <a class="btn" href="https://apps.apple.com/us/app/photo-organizer-chunky-time/id6802936204">
+            <svg aria-hidden="true"><use href="#apple"/></svg>
+            Download on the App Store
+          </a>
+          <span class="hero-note">For iPhone · Nothing leaves your phone</span>
         </div>
-        <div class="phone-label">My Albums ✦</div>
+      </div>
+
+      <div class="hero-art">
+        <img class="hero-phone" src="assets/screens/home.webp" width="780" height="1400"
+             alt="Chunky Time home screen: Chunky the dog on a cushion next to your library stats and cleanup progress" />
+        <span class="sticker keep" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5 10-11"/></svg>keep
+        </span>
+        <span class="sticker archive" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>archive
+        </span>
+      </div>
+    </header>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <section id="how">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">How it works</p>
+        <h2>As easy as a swipe</h2>
+        <p>No more scrolling through thousands of photos wondering where to start. Chunky serves them up one at a time.</p>
+      </div>
+    </div>
+    <div class="gallery" tabindex="0" aria-label="App screenshots, scroll horizontally">
+      <img src="assets/screens/home.webp"     width="780" height="1690" loading="lazy" alt="Organize your photos with Chunky" />
+      <img src="assets/screens/keep.webp"     width="780" height="1690" loading="lazy" alt="Swipe right to keep" />
+      <img src="assets/screens/archive.webp"  width="780" height="1690" loading="lazy" alt="Swipe left to archive" />
+      <img src="assets/screens/clusters.webp" width="780" height="1690" loading="lazy" alt="See clusters of similar photos at a glance" />
+      <img src="assets/screens/favs.webp"     width="780" height="1690" loading="lazy" alt="Pick your favorites and archive the rest" />
+      <img src="assets/screens/review.webp"   width="780" height="1690" loading="lazy" alt="Review archived photos before deleting" />
+      <img src="assets/screens/months.webp"   width="780" height="1690" loading="lazy" alt="Sort your photos by month" />
+      <img src="assets/screens/albums.webp"   width="780" height="1690" loading="lazy" alt="Albums for screenshots, videos, portraits and more" />
+    </div>
+  </section>
+
+  <!-- PROMISES -->
+  <section style="padding-top: 24px;">
+    <div class="wrap promises">
+      <div class="promise">
+        <svg viewBox="0 0 44 44" fill="none" stroke="var(--ink)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 4l15 6v10c0 10-6.5 16.5-15 20C13.5 36.5 7 30 7 20V10z" fill="var(--kraft)"/><path d="M15 22l5 5 9-10"/></svg>
+        <div>
+          <h3>Your photos stay yours</h3>
+          <p>Everything happens on your phone. No uploads, no cloud storage — no one but you ever sees your photos.</p>
+        </div>
+      </div>
+      <div class="promise">
+        <svg viewBox="0 0 44 44" fill="none" stroke="var(--ink)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="22" cy="22" r="17" fill="var(--kraft)"/><path d="M22 12v20M27 16.5c-1-1.6-2.8-2.5-5-2.5-3 0-5 1.5-5 4s2.5 3.2 5 4 5 1.6 5 4-2 4-5 4c-2.3 0-4.2-1-5-2.6"/></svg>
+        <div>
+          <h3>Free to use</h3>
+          <p>A generous daily swipe allowance that refills every day. Chunky Time Plus removes the cap whenever you want to go further.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- FEATURES -->
-  <section class="features">
-    <p class="section-label">What you'll love</p>
-    <h2>Made for the photos<br>that matter most</h2>
-    <div class="cards">
-      <div class="card">
-        <span class="card-icon">✨</span>
-        <h3>Smart Albums</h3>
-        <p>Chunky Time automatically groups your photos by moments, people, and vibes — no manual sorting needed.</p>
-      </div>
-      <div class="card">
-        <span class="card-icon">🌸</span>
-        <h3>Beautiful Layouts</h3>
-        <p>Show off your memories with stunning grid and collage views that feel like a personal magazine.</p>
-      </div>
-      <div class="card">
-        <span class="card-icon">🔒</span>
-        <h3>Private & Secure</h3>
-        <p>Your photos stay yours. Everything lives on-device — no cloud upload required, ever.</p>
+  <!-- FINAL CTA -->
+  <section style="padding-top: 24px;">
+    <div class="wrap">
+      <div class="cta-panel">
+        <img class="chunky" src="assets/chunkytime_app_icon.png" width="96" height="96" alt="Chunky the dog" />
+        <h2>It's Chunky Time~</h2>
+        <p>Declutter your camera roll and save the memories that matter — with a friend by your side.</p>
+        <a class="btn" href="https://apps.apple.com/us/app/photo-organizer-chunky-time/id6802936204">
+          <svg aria-hidden="true"><use href="#apple"/></svg>
+          Download on the App Store
+        </a>
       </div>
     </div>
   </section>
-
-  <!-- WAITLIST -->
-  <section style="padding: 0 24px;">
-    <div class="waitlist">
-      <h2>Be the first to know ✦</h2>
-      <p>Join the waitlist and get early access when Chunky Time launches on the App Store.</p>
-      <div class="waitlist-form">
-        <form class="form-row" id="waitlist-form">
-          <input type="email" id="email-input" placeholder="your@email.com" required />
-          <button type="submit" class="btn">Notify Me ✦</button>
-        </form>
-        <p class="success-msg" id="success-msg">✦ You're on the list! We'll be in touch soon.</p>
-      </div>
-      <p class="fine-print">No spam, ever. Just one email when we launch.</p>
-    </div>
-  </section>
-
-  <script>
-    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxv9yDKsCuK5Fj9mEV5-guenQpz_1HhymxV_kLSugQiX6uaSlU9G3bWhRRApgxlcWLwGQ/exec';
-
-    document.getElementById('waitlist-form').addEventListener('submit', async function(e) {
-      e.preventDefault();
-      const email = document.getElementById('email-input').value;
-      const btn = this.querySelector('button');
-      btn.textContent = 'Joining…';
-      btn.disabled = true;
-
-      try {
-        await fetch(SCRIPT_URL, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email })
-        });
-      } catch (_) {}
-
-      this.style.display = 'none';
-      document.getElementById('success-msg').classList.add('show');
-    });
-  </script>
 
   <!-- FOOTER -->
   <footer>
-    <p>© 2026 TinyCone LLC &nbsp;·&nbsp; Made with love ✦</p>
+    <p>© 2026 TinyCone LLC &nbsp;·&nbsp; Chunky approved</p>
     <p class="footer-links">
       <a href="/terms/">Terms of Use</a>
       <span class="sep">·</span>
       <a href="/privacy/">Privacy Policy</a>
       <span class="sep">·</span>
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLScr2_S8QfSjYzW43VQgpnQ8QsNr1V4ofUxMfUt96eABQwHrug/viewform?usp=header" target="_blank" rel="noopener">Contact Support</a>
+      <a href="mailto:team@tinycone.com?subject=Chunky%20Time%20Support">Contact Support</a>
     </p>
   </footer>
-
 
 </body>
 </html>
