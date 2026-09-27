@@ -216,27 +216,6 @@
       border-radius: 24px;
     }
 
-    /* ── PROMISES ── */
-    .promises {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 22px;
-    }
-
-    .promise {
-      background: var(--white);
-      border: 2.5px solid var(--ink);
-      border-radius: var(--radius);
-      padding: 28px;
-      display: flex;
-      gap: 18px;
-      align-items: flex-start;
-    }
-
-    .promise svg { width: 44px; height: 44px; flex: none; }
-    .promise h3 { font-size: 1.3rem; margin-bottom: 6px; }
-    .promise p { color: var(--ink-soft); }
-
     /* ── FINAL CTA ── */
     .cta-panel {
       background: var(--paper) var(--grain);
@@ -258,6 +237,8 @@
 
     .cta-panel p { color: var(--ink-soft); font-size: 1.08rem; max-width: 480px; margin: 0 auto 28px; }
 
+    .cta-panel .cta-note { margin: 16px auto 0; font-size: 0.9rem; font-weight: 600; }
+
     /* ── FOOTER ── */
     footer {
       text-align: center;
@@ -277,7 +258,6 @@
       .hero-sub { margin-left: auto; margin-right: auto; }
       .hero-cta { justify-content: center; }
       .hero-art { width: min(80%, 340px); }
-      .promises { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 560px) {
@@ -287,7 +267,6 @@
       .sticker.keep { right: -6%; }
       .sticker.archive { left: -8%; }
       .gallery img { width: 210px; }
-      .promise { flex-direction: column; }
       .cta-panel { padding: 44px 22px; border-radius: 26px; }
     }
 
@@ -360,37 +339,18 @@
     </div>
   </section>
 
-  <!-- PROMISES -->
-  <section style="padding-top: 24px;">
-    <div class="wrap promises">
-      <div class="promise">
-        <svg viewBox="0 0 44 44" fill="none" stroke="var(--ink)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 4l15 6v10c0 10-6.5 16.5-15 20C13.5 36.5 7 30 7 20V10z" fill="var(--kraft)"/><path d="M15 22l5 5 9-10"/></svg>
-        <div>
-          <h3>Your photos stay yours</h3>
-          <p>Everything happens on your phone. No uploads, no cloud storage — no one but you ever sees your photos.</p>
-        </div>
-      </div>
-      <div class="promise">
-        <svg viewBox="0 0 44 44" fill="none" stroke="var(--ink)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="22" cy="22" r="17" fill="var(--kraft)"/><path d="M22 12v20M27 16.5c-1-1.6-2.8-2.5-5-2.5-3 0-5 1.5-5 4s2.5 3.2 5 4 5 1.6 5 4-2 4-5 4c-2.3 0-4.2-1-5-2.6"/></svg>
-        <div>
-          <h3>Free to use</h3>
-          <p>A generous daily swipe allowance that refills every day. Chunky Time Plus removes the cap whenever you want to go further.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- FINAL CTA -->
   <section style="padding-top: 24px;">
     <div class="wrap">
       <div class="cta-panel">
         <img class="chunky" src="assets/chunkytime_app_icon.png" width="96" height="96" alt="Chunky the dog" />
-        <h2>It's Chunky Time~</h2>
+        <h2>It's Chunky Time!</h2>
         <p>Declutter your camera roll and save the memories that matter — with a friend by your side.</p>
         <a class="btn" href="https://apps.apple.com/us/app/photo-organizer-chunky-time/id6802936204">
           <svg aria-hidden="true"><use href="#apple"/></svg>
           Download on the App Store
         </a>
+        <p class="cta-note">For iPhone · Nothing leaves your phone</p>
       </div>
     </div>
   </section>
