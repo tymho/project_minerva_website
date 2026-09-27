@@ -143,20 +143,14 @@
       margin-bottom: 32px;
     }
 
-    .hero-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 20px; }
+    /* stack the note under the button, centered on it */
+    .hero-cta { display: inline-flex; flex-direction: column; align-items: center; gap: 12px; }
 
     .hero-note { font-size: 0.9rem; color: var(--ink-soft); font-weight: 600; }
 
     .hero-art { position: relative; justify-self: center; width: min(100%, 380px); }
 
-    /* crop the store caption off the top of the screenshot, keep the phone */
-    .hero-phone {
-      width: 100%;
-      height: auto;
-      aspect-ratio: 780 / 1400;
-      object-fit: cover;
-      object-position: bottom;
-    }
+    .hero-phone { width: 100%; height: auto; }
 
     .sticker {
       position: absolute;
@@ -212,8 +206,11 @@
       width: 250px;
       height: auto;
       aspect-ratio: 780 / 1690;
+      object-fit: cover;
       scroll-snap-align: center;
+      border: 2.5px solid var(--ink);
       border-radius: 24px;
+      box-shadow: 0 6px 0 rgba(74, 49, 34, 0.25);
     }
 
     /* ── FINAL CTA ── */
@@ -306,7 +303,7 @@
       </div>
 
       <div class="hero-art">
-        <img class="hero-phone" src="assets/screens/home.webp" width="780" height="1400"
+        <img class="hero-phone" src="assets/screens/hero.webp" width="780" height="1427"
              alt="Chunky Time home screen: Chunky the dog on a cushion next to your library stats and cleanup progress" />
         <span class="sticker keep" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5 10-11"/></svg>keep
